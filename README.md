@@ -55,17 +55,17 @@ This is a simple HTTP proxy server written in C. It allows you to compile and ru
 
 The list of blocked URLs is stored in a file named `Blocklist.txt` in the same directory as the proxy server program. The blocklist is saved to this file whenever a URL is added or removed. The proxy server also loads the blocklist from this file when it starts.
 
-## HTTP Blocklist:
+# HTTP Blocklist:
 - example.net
 - example.com
 - sneaindia.com
 
-## HTTPS Blocklist:
+# HTTPS Blocklist:
 - www.youtube.com
 - www.google.com
 - www.github.com
 
-## URL Blocklist File
+# URL Blocklist File
 
 This file contains a list of URLs to be blocked by the HTTP/HTTPS proxy server.
 

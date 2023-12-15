@@ -1,30 +1,62 @@
-URL_Filter_Project
-Proxy Server in C
-This project is a simple proxy server used for URL filtering and implemented in C. It supports request caching and URL blocking functionality. There are 2 separate files, one for HTTP proxy and other for HTTPS proxy. Following are the steps and guide based on HTTP Proxy, but similar steps shall be followed for HTTPS proxy file as well.
+# HTTP Proxy Server
 
-How to Run
-Compile the proxy server code using gcc. For example:
-gcc -o HTTP_Proxy HTTP_Proxy.c
-Run the compiled binary. You can specify the port number for the proxy server to listen on using the -p option. For example, to have the proxy server listen on port 8080:
-./proxy -p 8080
-If you don't specify a port number, the program will prompt you to enter one when it starts.
+## Overview
 
-Blocklist
-The proxy server supports blocking specific URLs. The list of blocked URLs is stored in a file named Blocklist.txt in the same directory as the proxy server program.
+This is a simple HTTP proxy server written in C. It allows you to compile and run a proxy server that can be configured to listen on a specified port. The server supports blocking specific URLs, maintains a blocklist, and caches responses from target servers.
 
-You can add URLs to the blocklist by entering the a command at the proxy server's command prompt, followed by the URL to block. For example:
+## Usage
 
-Enter a command (a - add, r - remove, l - list, q - quit): r
-Enter the URL to remove: www.example.com
-You can view the current blocklist by entering the l command at the proxy server's command prompt. For example:
+1. **Compile the Proxy Server Code:**
 
-Enter a command (a - add, r - remove, l - list, q - quit): l
-The blocklist is saved to the Blocklist.txt file whenever a URL is added or removed. The proxy server also loads the blocklist from this file when it starts.
+    ```bash
+    gcc -o HTTP_Proxy HTTP_Proxy.c
+    ```
 
-Cache
-The proxy server caches responses from the target servers. The cache size is limited to 10 entries. When the cache is full, the least recently used entry is replaced.
+2. **Run the Compiled Binary:**
 
-Quitting
-You can quit the proxy server by entering the q command at the proxy server's command prompt. For example:
+    - To specify a port number:
+        ```bash
+        ./HTTP_Proxy -p <port_number>
+        ```
 
-Enter a command (a - add, r - remove, l - list, q - quit): q
+    - If no port number is specified, the program prompts you to enter one.
+
+3. **Blocking URLs:**
+
+    - Add a URL to the blocklist:
+        ```bash
+        Enter a command (a - add, r - remove, l - list, q - quit): a
+        Enter the URL to block: www.example.com
+        ```
+
+    - Remove a URL from the blocklist:
+        ```bash
+        Enter a command (a - add, r - remove, l - list, q - quit): r
+        Enter the URL to remove: www.example.com
+        ```
+
+    - List blocked URLs:
+        ```bash
+        Enter a command (a - add, r - remove, l - list, q - quit): l
+        ```
+
+4. **Cache:**
+
+    - The proxy server caches responses from target servers. The cache size is limited to 10 entries.
+
+5. **Quitting:**
+
+    - Quit the proxy server:
+        ```bash
+        Enter a command (a - add, r - remove, l - list, q - quit): q
+        ```
+
+## Blocklist File
+
+The list of blocked URLs is stored in a file named `Blocklist.txt` in the same directory as the proxy server program. The blocklist is saved to this file whenever a URL is added or removed. The proxy server also loads the blocklist from this file when it starts.
+
+## Note
+
+This is a basic implementation, and you may need to customize it based on your requirements.
+
+Feel free to explore and modify the code as needed. If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/your-username/your-repository/issues).
